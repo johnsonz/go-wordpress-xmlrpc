@@ -26,8 +26,9 @@ type PostContent struct {
 	PostThumbnail int    `xmlrpc:"post_thumbnail"`
 	PostParent    int    `xmlrpc:"post_parent"`
 	// Terms         Terms      `xmlrpc:"terms"`
-	TermsNames TermsNames `xmlrpc:"terms_names"`
-	Enclosure  Enclosure  `xmlrpc:"enclosure"`
+	TermsNames   TermsNames    `xmlrpc:"terms_names"`
+	Enclosure    Enclosure     `xmlrpc:"enclosure"`
+	CustomFields []CustomField `xmlrpc:"custom_fields"`
 }
 
 type Terms struct {
@@ -51,6 +52,10 @@ type Enclosure struct {
 	Url    string `xmlrpc:"url"`
 	Length int    `xmlrpc:"length"`
 	Type   string `xmlrpc:"type"`
+}
+type CustomField struct {
+	Key   string `xmlrpc:"key"`
+	Value string `xmlrpc:"value"`
 }
 
 func (p Post) GetMethord() string {
